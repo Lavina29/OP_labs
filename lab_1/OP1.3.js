@@ -1,4 +1,4 @@
-'use stritemct';
+'use strict';
 
 //const obj = [true, 'hello', 5, 12, -200, false, false, 'word']
 const obj = [true, 'hello', 5, 12, -200, false, 'word', null, undefined, 3.14, 'test', 0, NaN, 100, 'JS', true, -7, 'text', 42, false, 29, "Anastasiia"]
