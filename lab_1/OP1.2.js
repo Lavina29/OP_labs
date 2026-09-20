@@ -1,13 +1,11 @@
 'use strict';
+const a = { n: 2 };
 
-function inc(n) {
-    n.x++;
+function inc(num) {
+    num.n++;
+    return num;
 }
 
-const a = { x: 17 };
+inc(a);
 
-const c = a;
-console.dir(a);
-inc(c);
-
-console.dir(c);
+console.dir({a});

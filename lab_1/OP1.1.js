@@ -1,9 +1,9 @@
 'use strict';
-let year = 2009;
-let age = inc(year);
+let a = 1;
+let b = inc(a);
 
 function inc(n) {
-    return 2026 - n;
+    n++;
 }
 
-console.dir({year, age});
+console.dir({a, b});
