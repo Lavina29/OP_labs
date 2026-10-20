@@ -6,29 +6,31 @@ const cube = x => x ** 3;
 
 const compose = (...fns) => {
     const handlers = []
-    for(const type of fns){
-        if(typeof type !== "function"){
-            throw new Error("type error")
-        }
-    }
     const f = (x) => {
-        try{
+        try {
+            for (const type of fns) {
+                if (typeof type !== "function") {
+                    throw new Error("type error")
+                }
+            }
             return fns.reduceRight((v, fn) => fn(v), x)
-        } catch (error) {
-            for (const handler of handlers){
+        }
+        catch (error) {
+            for (const handler of handlers) {
                 handler(error)
             }
             return undefined
         }
+
     }
     f.on = (name, handler) => {
         if (name === 'error') {
             handlers.push(handler)
         }
     }
-
     return f
 }
 
-const f = compose(cube, 0, inc);
-console.log(f(5));
+const a = compose(cube, inc, 0)
+a.on("error", (error) => console.log("Error: " + error.message))
+console.log(a(5));
